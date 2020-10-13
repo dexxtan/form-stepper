@@ -66,6 +66,7 @@ export const reducer = (state: State = initial(), action: Actions): State => {
     case SAVE_PART_COMPOSITION: {
       const updatedHash = { ...state.partCompositions }
       updatedHash[action.partId] = action.percentage
+
       let newTotal = 0
       let isAnyCompositionUnfilled = false
       for (const key in updatedHash) {
@@ -75,7 +76,7 @@ export const reducer = (state: State = initial(), action: Actions): State => {
           isAnyCompositionUnfilled = true
         }
       }
-      console.log(updatedHash, newTotal, isAnyCompositionUnfilled)
+
       return { ...state, partCompositions: updatedHash, totalCompositions: newTotal, anyCompositionsUnfilled: isAnyCompositionUnfilled }
     }
     case RESET_PART_COMPOSITIONS: {

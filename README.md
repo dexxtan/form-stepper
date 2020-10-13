@@ -1,15 +1,17 @@
-# 🚀 Welcome to your new awesome project!
+# Welcome to Form Stepper!
 
-This project has been created using **webpack scaffold**, you can now run
-
-```
-npm run build
-```
-
-or
+You may run this project by first running
 
 ```
-yarn build
+yarn install
 ```
 
-to bundle your application
+and subsequently
+
+```
+yarn start
+```
+
+to start webpack dev server
+
+Visit http://localhost:8080 to view the form stepper.

@@ -21,8 +21,9 @@ const StyledHero = styled.h1`
 
 const Content = styled.div`
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 `
 

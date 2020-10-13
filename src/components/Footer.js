@@ -1,11 +1,11 @@
 // @flow
-import React, { PureComponent } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import type { Node } from 'react'
 
 type Props = {
-  children: Node
+  children?: Node
 }
 
 const Section = styled.section`
@@ -16,13 +16,8 @@ const Section = styled.section`
   align-items: center;
 `
 
-export default class Footer extends PureComponent<Props> {
-  render () {
-    const { children } = this.props
-    return (
-      <Section>
-        {children}
-      </Section>
-    )
-  }
-}
+export default ({ children }: Props) => (
+  <Section>
+    {children}
+  </Section>
+)
