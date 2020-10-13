@@ -1,15 +1,16 @@
 // @flow
-import React, { PureComponent } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
 import styled from 'styled-components'
+import { useHistory } from 'react-router-dom'
 
 import type { Node } from 'react'
 
 type Props = {
   className?: string,
   purpose: string,
-  to?: string,
+  to: string,
   disabled?: boolean,
+  onClick?: Function,
   children: Node
 }
 
@@ -27,8 +28,12 @@ const determineBackground = (props: Props): string => {
   }
 }
 
-const determineDisabled = (props: Props): string => {
+const determinePointerEvents = (props: Props): string => {
   return props.disabled === true ? 'none' : 'auto'
+}
+
+const determineCursor = (props: Props): string => {
+  return props.disabled === true ? 'auto' : 'pointer'
 }
 
 const StyledButton = styled.button`
@@ -43,16 +48,23 @@ const StyledButton = styled.button`
   background: ${determineBackground};
   text-decoration: none;
   text-align: center;
-  pointer-events: ${determineDisabled};
+  pointer-events: ${determinePointerEvents};
+  cursor: ${determineCursor}
 `
 
-export default class Button extends PureComponent<Props> {
-  render () {
-    const { className, purpose, to, disabled, children } = this.props
-    return (
-      <StyledButton className={className} purpose={purpose} as={Link} to={to} disabled={disabled}>
-        {children}
-      </StyledButton>
-    )
+export default ({ className, purpose, to, disabled, onClick, children }: Props) => {
+  const history = useHistory()
+
+  const handleClick = () => {
+    if (onClick) {
+      onClick()
+    }
+    history.push(to)
   }
+
+  return (
+    <StyledButton className={className} purpose={purpose} as='button' onClick={handleClick} disabled={disabled}>
+      {children}
+    </StyledButton>
+  )
 }

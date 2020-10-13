@@ -6,7 +6,7 @@ import Button from '../components/Button'
 
 export const HomePage = () => (
   <Wrapper>
-    <Button purpose='primary' to='/page1'>New Request</Button>
+    <Button purpose='primary' to='/part-query'>New Request</Button>
   </Wrapper>
 )
 

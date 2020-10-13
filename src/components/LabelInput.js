@@ -31,7 +31,9 @@ export default ({ label, onChange }: Props) => {
     event.preventDefault()
     const newValue = event.target.value
     setValue(newValue)
-    onChange(newValue)
+    if (typeof onChange === 'function') {
+      onChange(newValue)
+    }
   }
 
   return (

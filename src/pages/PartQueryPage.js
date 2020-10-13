@@ -9,6 +9,7 @@ import Button from '../components/Button'
 
 import { currentPartsStore } from '../store'
 import partsActions, { getParts } from '../store/parts'
+import partCompositionsActions from '../store/part-compositions'
 import { parseStringToNumber } from '../utils'
 
 import type { Dispatch } from 'redux'
@@ -27,6 +28,12 @@ class PartQueryPage extends Component<Props> {
     dispatch(partsActions.saveParts(numParts))
   }
 
+  createCompositions () {
+    const { parts, dispatch } = this.props
+
+    dispatch(partCompositionsActions.createPartCompositions(parts))
+  }
+
   render () {
     const { parts } = this.props
     const disableNext = parts < 1
@@ -35,7 +42,7 @@ class PartQueryPage extends Component<Props> {
         <LabelInput label='Number of parts:' onChange={(newValue: string) => this.updateNumberOfParts(newValue)} />
         <Footer>
           <Button purpose='secondary' to='/'>Previous</Button>
-          <Button purpose='primary' to='/page2' disabled={disableNext}>Next</Button>
+          <Button purpose='primary' to='/part-composition' disabled={disableNext} onClick={() => this.createCompositions()}>Next</Button>
         </Footer>
       </Wrapper>
     )

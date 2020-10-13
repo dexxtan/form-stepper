@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import createStore from './store'
 import HomePage from './pages/HomePage'
 import PartQueryPage from './pages/PartQueryPage'
+import PartCompositionPage from './pages/PartCompositionPage'
 
 const store = createStore()
 
@@ -16,7 +17,8 @@ render(
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route path='/page1' component={PartQueryPage} />
+        <Route path='/part-composition' component={PartCompositionPage} />
+        <Route path='/part-query' component={PartQueryPage} />
         <Route path='/' component={HomePage} />
       </Switch>
     </Router>
