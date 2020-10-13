@@ -2,10 +2,11 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import createStore from './store'
 import HomePage from './pages/HomePage'
+import PartQueryPage from './pages/PartQueryPage'
 
 const store = createStore()
 
@@ -14,7 +15,10 @@ const rootElement = document.getElementById('root') || (() => { throw new Error(
 render(
   <Provider store={store}>
     <Router>
-      <Route path='/' component={HomePage} />
+      <Switch>
+        <Route path='/page1' component={PartQueryPage} />
+        <Route path='/' component={HomePage} />
+      </Switch>
     </Router>
   </Provider>,
   rootElement

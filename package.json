@@ -17,7 +17,11 @@
     "plugins": [
       "flowtype"
     ],
-    "globals": []
+    "globals": [
+      "SyntheticEvent",
+      "HTMLInputElement",
+      "_"
+    ]
   },
   "dependencies": {
     "flow-bin": "^0.135.0",

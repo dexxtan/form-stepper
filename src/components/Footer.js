@@ -10,15 +10,13 @@ type Props = {
 
 const Section = styled.section`
   width: 100%;
-  height: calc(100vh - 16px); // body margins are 8px, to find a way to modify body css
-  font-family: sans-serif;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  font-family: sans-serif;
+  justify-content: flex-end;
   align-items: center;
 `
 
-export default class Wrapper extends PureComponent<Props> {
+export default class Footer extends PureComponent<Props> {
   render () {
     const { children } = this.props
     return (
