@@ -3,9 +3,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import Wrapper from '../components/Wrapper'
+import Header from '../components/Header'
 import Footer from '../components/Footer'
 import LabelInput from '../components/LabelInput'
 import Button from '../components/Button'
+import Stepper from '../components/Stepper'
 
 import { currentPartsStore } from '../store'
 import partsActions, { getParts } from '../store/parts'
@@ -39,6 +41,9 @@ class PartQueryPage extends Component<Props> {
     const disableNext = parts < 1
     return (
       <Wrapper>
+        <Header>
+          <Stepper steps={3} progress={1} />
+        </Header>
         <LabelInput label='Number of parts:' onChange={(newValue: string) => this.updateNumberOfParts(newValue)} />
         <Footer>
           <Button purpose='secondary' to='/'>Previous</Button>

@@ -10,3 +10,5 @@ export const parseStringToNumber = (string: string): number => {
 }
 
 export const stringifyNumber = (num: number): string => num + ''
+
+export const generateArray = (size: number): Array<number> => ([...new Array(size).keys()])

@@ -3,6 +3,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 
+import colours from '../utils/colours'
+
 import type { Node } from 'react'
 
 type Props = {
@@ -14,9 +16,7 @@ type Props = {
   children: Node
 }
 
-const formBlue = '#2A44D4'
-const black = '#000000'
-const white = '#FFFFFF'
+const { formBlue, darkGrey, white } = colours
 
 const determineBackground = (props: Props): string => {
   switch (props.purpose) {
@@ -24,7 +24,7 @@ const determineBackground = (props: Props): string => {
       return formBlue
     case 'secondary':
     default:
-      return black
+      return darkGrey
   }
 }
 
@@ -41,7 +41,7 @@ const StyledButton = styled.button`
   font-size: 2em;
   padding: 0.5em 2em;
   margin: 0.5em;
-  min-width: 7.5em;
+  min-width: 11em;
   border: 0px;
   border-radius: 0px;
   color: ${white};

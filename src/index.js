@@ -8,6 +8,7 @@ import createStore from './store'
 import HomePage from './pages/HomePage'
 import PartQueryPage from './pages/PartQueryPage'
 import PartCompositionPage from './pages/PartCompositionPage'
+import DonePage from './pages/DonePage'
 
 const store = createStore()
 
@@ -17,6 +18,7 @@ render(
   <Provider store={store}>
     <Router>
       <Switch>
+        <Route path='/done' component={DonePage} />
         <Route path='/part-composition' component={PartCompositionPage} />
         <Route path='/part-query' component={PartQueryPage} />
         <Route path='/' component={HomePage} />

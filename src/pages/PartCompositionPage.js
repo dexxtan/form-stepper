@@ -3,9 +3,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import Wrapper from '../components/Wrapper'
+import Header from '../components/Header'
 import Footer from '../components/Footer'
 import LabelInput from '../components/LabelInput'
 import Button from '../components/Button'
+import Stepper from '../components/Stepper'
 
 import { currentPartsStore, currentPartCompositionsStore } from '../store'
 import partsActions, { getParts } from '../store/parts'
@@ -50,6 +52,9 @@ class PartCompositionPage extends Component<Props> {
     const disableNext = totalCompositions !== 100 || anyCompositionsUnfilled
     return (
       <Wrapper>
+        <Header>
+          <Stepper steps={3} progress={2} />
+        </Header>
         {this.renderPartsList()}
         <Footer>
           <Button purpose='secondary' to='/part-query'>Previous</Button>
