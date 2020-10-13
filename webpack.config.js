@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 /*
  * SplitChunksPlugin is enabled by default and replaced
@@ -25,8 +26,19 @@ const webpack = require('webpack')
 const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, './dist/'),
+    filename: 'index_bundle.js'
+  },
+
   mode: 'development',
-  plugins: [new webpack.ProgressPlugin()],
+  plugins: [
+    new webpack.ProgressPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'index.html'
+    })
+  ],
 
   module: {
     rules: [{
@@ -56,7 +68,8 @@ module.exports = {
 
   devServer: {
     hot: true,
-    port: 8080
+    port: 8080,
+    historyApiFallback: true
   },
 
   optimization: {
