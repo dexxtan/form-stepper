@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import createStore from './store'
-import Application from './pages/Application'
+import HomePage from './pages/HomePage'
 
 const store = createStore()
 
@@ -14,7 +14,7 @@ const rootElement = document.getElementById('root') || (() => { throw new Error(
 render(
   <Provider store={store}>
     <Router>
-      <Route path='/' component={Application} />
+      <Route path='/' component={HomePage} />
     </Router>
   </Provider>,
   rootElement
